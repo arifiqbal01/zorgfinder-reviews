@@ -1,0 +1,17 @@
+{
+  "name": "zorgfinder/reviews",
+  "description": "ZorgFinder Reviews extension plugin.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "ZorgFinder\\Reviews\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.1"
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}
