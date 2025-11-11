@@ -8,6 +8,10 @@
       "ZorgFinder\\Reviews\\": "src/"
     }
   },
+  "scripts": {
+  "build": "wp-scripts build",
+  "start": "wp-scripts start"
+  },
   "require": {
     "php": ">=8.1"
   },

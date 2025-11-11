@@ -22,5 +22,12 @@ if (file_exists($autoload)) {
     });
 }
 
+
 // bootstrap files
 require_once __DIR__ . '/bootstrap/setup.php';
+
+add_action('init', function () {
+    register_block_type(__DIR__ . '/blocks');
+});
+
+

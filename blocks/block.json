@@ -1,0 +1,9 @@
+{
+  "apiVersion": 3,
+  "name": "zorgfinder/reviews",
+  "title": "ZorgFinder Reviews",
+  "category": "widgets",
+  "icon": "star-filled",
+  "description": "Displays reviews and allows submission for ZorgFinder providers.",
+  "editorScript": "file:./build/index.js"
+}
