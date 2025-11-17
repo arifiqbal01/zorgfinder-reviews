@@ -17,15 +17,14 @@ if (! defined('ZORGFINDER_REVIEWS_VERSION')) {
     define('ZORGFINDER_REVIEWS_VERSION', '1.0.0');
 }
 
-// Base plugin path (resolves correctly regardless of nesting)
-if (! defined('ZORGFINDER_REVIEWS_PATH')) {
-    define('ZORGFINDER_REVIEWS_PATH', plugin_dir_path(dirname(__FILE__)));
+if (! defined('ZORGFINDER_REVIEWS_FILE')) {
+    define('ZORGFINDER_REVIEWS_FILE', __DIR__ . '/../zorgfinder-reviews.php');
 }
 
-// Absolute main plugin file path
-if (! defined('ZORGFINDER_REVIEWS_FILE')) {
-    define('ZORGFINDER_REVIEWS_FILE', ZORGFINDER_REVIEWS_PATH . 'zorgfinder-reviews.php');
+if (! defined('ZORGFINDER_REVIEWS_PATH')) {
+    define('ZORGFINDER_REVIEWS_PATH', plugin_dir_path(ZORGFINDER_REVIEWS_FILE));
 }
+
 
 // -----------------------------------------------------------------------------
 // Initialize Core
@@ -44,7 +43,6 @@ add_action('plugins_loaded', function () {
         error_log('[ZorgFinder Reviews] Core class not found — autoload may have failed.');
     }
 });
-
 // -----------------------------------------------------------------------------
 // Activation / Deactivation Hooks
 // -----------------------------------------------------------------------------
@@ -56,12 +54,6 @@ if (file_exists(__DIR__ . '/Activator.php')) {
     );
 }
 
-if (file_exists(__DIR__ . '/Deactivator.php')) {
-    register_deactivation_hook(
-        ZORGFINDER_REVIEWS_FILE,
-        ['ZorgFinder\\Reviews\\Bootstrap\\Deactivator', 'deactivate']
-    );
-}
 
 // Optional: uninstall support if present
 if (file_exists(__DIR__ . '/Uninstaller.php')) {
